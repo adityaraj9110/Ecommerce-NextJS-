@@ -1,0 +1,9 @@
+export const ADD_TO_CART = "ADD_TO_CART"
+export const REMOVE_TO_CART = "REMOVE_TO_CART"
+export const UPDATE_PAGE = "UPDATE_PAGE"
+export const NEXT_PAGE = "NEXT_PAGE";
+export const PREVIOUS_PAGE = "PREVIOUS_PAGE";
+export const REGISTER = "REGISTER";
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT"
+export const OFFSET = "OFFSET"

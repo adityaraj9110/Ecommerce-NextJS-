@@ -1,0 +1,37 @@
+.container{
+    height: 40px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+}
+.pagination{
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.pagination h6{
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.page{
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.offset{
+    color: #000;
+    cursor: pointer;
+    
+}
+
+

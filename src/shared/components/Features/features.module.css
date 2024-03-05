@@ -1,0 +1,30 @@
+.container{
+    height: 93%;
+    padding: 15px;
+    border: 0.1px solid  #ffffff7e;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 50px;
+    overflow-y: scroll;
+
+}
+.container::-webkit-scrollbar {
+    width: 8px; /* width of the scrollbar */
+    border-radius: 50px;
+  }
+  
+  .container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the track */
+
+    border-radius: 5px;
+  }
+  
+  .container::-webkit-scrollbar-thumb {
+    background: #00000049; /* color of the thumb */
+    border-radius: 5px;
+  }
+  
+  .container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* color of the thumb on hover */
+  }
