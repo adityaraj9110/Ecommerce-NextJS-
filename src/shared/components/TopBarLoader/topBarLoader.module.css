@@ -1,0 +1,8 @@
+.topLoader{
+    /* width: 100vw; */
+    height: 4px;
+    position: absolute;
+    left: 0;
+    background-color: red;
+    transition: width 0.2s ease-in-out;
+}

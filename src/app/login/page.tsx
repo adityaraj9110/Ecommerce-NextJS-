@@ -62,7 +62,7 @@ const Login = () => {
             payload: data,
           });
           router.push("/");
-          Cookies.set(LocalStorageKeys.CURRENT_USER,"login");
+          Cookies.set(LocalStorageKeys.CURRENT_USER,"login",{expires:7});
         }
       }
     }

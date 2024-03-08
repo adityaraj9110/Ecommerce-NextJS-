@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react";
+
 class LocalManagement {
 
     getItem<TData>(key:string):TData{
@@ -15,3 +17,14 @@ class LocalManagement {
     }
 }
 export const localManagement = new LocalManagement();
+
+const useLocalState = (key:string,initial:string) =>{
+    const [state,setState] = useState('initial')
+    // Generic typescript - same as useState
+    // local storag key -> get -> items (yes) _ itemvalue : insitail
+    // update locacal on setState
+
+
+
+    return [state,setState]
+}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./pageDetails.css";
 import { DataType } from "@/shared/utils/DataTypes/ResponsedataType";
 import Image from "next/image";
+// import { apiProvider } from "@/shared/utils/apiClasses/apiProvider";
 import { getDataById } from "@/app/_serverSideFetching/apiCalls";
 import { ThreeCircles } from "react-loader-spinner";
 import ReactStars from "react-stars";

@@ -1,16 +1,11 @@
 "use client";
-import { pageSelector } from "@/shared/redux/reducers/PageReducers";
 import styles from "./pagination.module.css";
-import { useDispatch } from "react-redux";
-import {
-  NEXT_PAGE,
-  OFFSET,
-  PREVIOUS_PAGE,
-  UPDATE_PAGE,
-} from "@/shared/redux/Constant";
-import { useSelector } from "react-redux";
 import { ChangeEvent } from "react";
-import { offsetSelector } from "@/shared/redux/reducers/OffsetReducer";
+import { usePathname, useRouter } from "next/navigation";
+import { Provider, useDispatch } from "react-redux";
+import { LOADING } from "@/shared/redux/Constant";
+import { store } from "@/shared/redux/store";
+import useLocalState from "@/shared/hooks/useLocalState";
 
 export enum ButtonHeading {
   H5 = "H5",
@@ -18,31 +13,34 @@ export enum ButtonHeading {
 
 export const totalPageNumber = [1, 2, 3, 4, 5];
 
-const Pagination = () => {
+interface PaginationProps {
+  findOffset: (offset: number) => number;
+}
 
+const Pagination = () => {
+  const router = useRouter();
+  const path = usePathname();
   const dispatch = useDispatch();
-  const currentPageNumber = useSelector(pageSelector);
-  const currentOffset = useSelector(offsetSelector);
+  const [offset, setOffset] = useLocalState("TESTING_OFFSET", 20);
+
+  const currentPageNumber = parseInt(path ? path.split("/")[2] : "1");
 
   const handleClick = (ind: number) => {
     dispatch({
-      type: UPDATE_PAGE,
-      payload: ind,
+      type: LOADING,
     });
+
+    router.push(`${ind}&limit=${offset}`);
   };
 
   const handleNext = () => {
-    if (currentOffset * currentPageNumber < 100) {
+    if (offset && offset * currentPageNumber < 100) {
       if (currentPageNumber > 3) {
         totalPageNumber.forEach((item, index) => {
           totalPageNumber[index] = item + 1;
         });
       }
-
-      dispatch({
-        type: NEXT_PAGE,
-        payload: currentPageNumber,
-      });
+      router.push(`${currentPageNumber + 1}`);
     } else {
       alert("No products are there on next page");
     }
@@ -59,17 +57,13 @@ const Pagination = () => {
 
       totalPageNumber.forEach((item) => console.log(item));
     }
-    dispatch({
-      type: PREVIOUS_PAGE,
-      payload: currentPageNumber,
-    });
+
+    router.push(`${currentPageNumber - 1}`);
   };
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    dispatch({
-      type: OFFSET,
-      payload: parseInt(e.target.value),
-    });
+    setOffset && setOffset(parseInt(e.target.value));
+    router.push(`${currentPageNumber}&limit=${e.target.value}`);
   };
 
   return (
@@ -95,7 +89,7 @@ const Pagination = () => {
         <select
           className={styles.offset}
           onChange={(e) => handleChange(e)}
-          value={currentOffset}
+          value={offset}
         >
           <option value="20" style={{ color: "#000" }}>
             20
@@ -118,4 +112,10 @@ const Pagination = () => {
   );
 };
 
-export default Pagination;
+const PaginationWithProvider = () => (
+  <Provider store={store}>
+    <Pagination />
+  </Provider>
+);
+
+export default PaginationWithProvider;

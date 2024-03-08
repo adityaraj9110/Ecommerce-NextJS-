@@ -1,3 +1,4 @@
+"use client";
 import { LocalStorageKeys } from "@/shared/utils/DataTypes/ResponsedataType";
 import { localManagement } from "@/shared/utils/apiClasses/localMangement";
 import { createAction, createReducer } from "@reduxjs/toolkit";

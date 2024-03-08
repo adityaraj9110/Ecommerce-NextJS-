@@ -1,3 +1,4 @@
+"use client";
 import { createAction, createReducer } from "@reduxjs/toolkit";
 import { localManagement } from "@/shared/utils/apiClasses/localMangement";
 import { LocalStorageKeys } from "@/shared/utils/DataTypes/ResponsedataType";
@@ -22,7 +23,7 @@ export const CartReducer = createReducer(initialState, (builder) => {
       const newState = state.filter((item) => {
         return item != action.payload;
       });
-      
+
       localManagement.setItem(LocalStorageKeys.CART_ITEMS, newState);
       return newState;
     });

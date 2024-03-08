@@ -4,6 +4,7 @@ import { PageReducer } from "./reducers/PageReducers";
 import { RegisterReducer } from "./reducers/RegisterReducer";
 import { AuthReducer } from "./reducers/AuthReducer";
 import { OffsetReducer } from "./reducers/OffsetReducer";
+import { LoaderReducer } from "./reducers/LoaderReducer";
 
 export const store = configureStore({
   reducer:{
@@ -11,6 +12,7 @@ export const store = configureStore({
     pageReducer:PageReducer,
     registerReducer:RegisterReducer,
     authReducer:AuthReducer,
-    offsetReducer:OffsetReducer
+    offsetReducer:OffsetReducer,
+    loaderReducer:LoaderReducer
   }
 });

@@ -1,23 +1,25 @@
+"use client";
 import Image from "next/image";
 import styles from "./productCard.module.css";
 import ReactStars from "react-stars";
 import { DataType } from "@/shared/utils/DataTypes/ResponsedataType";
-import { useDispatch } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import { cartSelector } from "@/shared/redux/reducers/CartReducers";
 import { ADD_TO_CART, REMOVE_TO_CART } from "@/shared/redux/Constant";
 import { useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { store } from "@/shared/redux/store";
 
 type PropType = {
-  data:DataType,
+  data: DataType;
   setData?: (id: number) => void;
-}
+};
 
-const ProductCard = ({ data ,setData }:PropType) => {
-
+const ProductCard = ({ data, setData }: PropType) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const cartItems = useSelector(cartSelector);
+  const path = usePathname();
 
   const itemsSelected = (id: string) => {
     return cartItems.some((item) => {
@@ -31,7 +33,7 @@ const ProductCard = ({ data ,setData }:PropType) => {
         type: REMOVE_TO_CART,
         payload: id.toString(),
       });
-      if(setData){
+      if (setData) {
         setData(id);
       }
     } else {
@@ -51,7 +53,7 @@ const ProductCard = ({ data ,setData }:PropType) => {
           width={150}
           height={100}
           priority
-          onClick={()=>router.push(`products/${data.id}`)}
+          onClick={() => router.push(`${path}/products/${data.id}`)}
         />
       </div>
       <div className={styles.imageInfo}>
@@ -77,5 +79,6 @@ const ProductCard = ({ data ,setData }:PropType) => {
     </div>
   );
 };
+
 
 export default ProductCard;

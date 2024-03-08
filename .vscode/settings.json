@@ -3,9 +3,12 @@
         "cachekey",
         "currentpage",
         "currentuser",
+        "ISLOADED",
+        "isloading",
         "Navlinks",
         "Optimised",
         "Responsedata",
-        "Serverv"
+        "Serverv",
+        "Topbar"
     ]
 }

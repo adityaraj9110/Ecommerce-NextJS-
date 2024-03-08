@@ -1,0 +1,214 @@
+.showCase{
+    height: calc(100vh - 190px);
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-y: hidden;
+}
+.showCase::-webkit-scrollbar {
+    width: 8px; /* width of the scrollbar */
+    border-radius: 50px;
+  }
+  
+  .showCase::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the track */
+
+    border-radius: 5px;
+  }
+  
+  .showCase::-webkit-scrollbar-thumb {
+    background: #00000049; /* color of the thumb */
+    border-radius: 5px;
+  }
+  
+  .showCase::-webkit-scrollbar-thumb:hover {
+    background: #555; /* color of the thumb on hover */
+  }
+
+.leftDiv{
+    width:100px ;
+    padding:10px;
+}
+
+
+.mainDiv{
+    width: 50%;
+    height:550px;
+    padding:10px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    background-color: inherit;
+    border: 1px solid #fff;
+}
+.mainDiv .main-thumbnail{
+    width: 500px;
+    padding: 20px 0 0 0;
+    margin-left: 45px;
+    object-fit: contain;
+    object-position: center;
+    position: relative;
+
+}
+.allImages{
+    width:100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+.allImages img{
+    width: 70px;
+    height: 80px;
+    margin-right: 10px;
+    padding: 3px;
+    border: 0.1px solid grey;
+    border-radius: 20px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: scale 0.2s ease-in-out;
+}
+.allImages img:hover{
+    scale: 1.01;
+}
+
+.rightDiv{
+    width: 47%;
+    height:550px;
+    padding:10px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    position: relative;
+    background-color:inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    
+    
+}
+.productInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rightDiv .productTitle{
+  
+    font-weight: 600;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.logoContainer{
+    margin: 10px 0;
+}
+.rating{
+    font-weight: 500;
+   
+}
+.price{
+    
+    font-weight: 600;
+    /* opacity: 0.8; */
+    
+}
+.discount{
+    
+    margin-left: 20px;
+    font-size: 15px;
+    /* opacity: 0.7; */
+}
+.stock{
+    
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: capitalize;
+    /* opacity: 0.7; */
+}
+.discriptionBox{
+
+    min-height: 100px;
+    max-height: 300px;
+    margin-top: 40px;
+    text-wrap: wrap;
+    overflow: hidden;
+}
+.productDescription{
+
+    width: 100%;
+    font-weight: 700;
+    
+}
+
+.actionButtons{
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.actionButtons button{
+    height: 50px;
+    width: 110px;
+    padding: 6px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    background-color:inherit;
+    cursor: pointer;
+}
+.deleteBtn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.loader-style{
+    position: absolute;
+    left: 30%;
+    top:40%;
+    transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width:768px) {
+    .showCase{
+        display: block;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .mainDiv{
+        width: 97%;
+    }
+    
+    .rightDiv{
+        width: 97%;
+    }
+
+    .actionButtons button{
+        height: 40px;
+        width: 30px;
+    }
+    .actionButtons button{
+        height: 50px;
+        width: 110px;
+    }
+    .allImages{
+        width: 50%;
+        margin: 10px auto;
+    }
+    .allImages img{
+        width: 60px;
+        height: 80px;
+    }
+    .loader-style{
+        left: 50%;
+    }
+}
+
+ 

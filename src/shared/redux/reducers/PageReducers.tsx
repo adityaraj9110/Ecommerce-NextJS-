@@ -1,3 +1,4 @@
+"use client";
 import { LocalStorageKeys } from "@/shared/utils/DataTypes/ResponsedataType";
 import { localManagement } from "@/shared/utils/apiClasses/localMangement";
 import { createAction, createReducer } from "@reduxjs/toolkit";
@@ -24,18 +25,20 @@ export const PageReducer = createReducer(initialState, (builder) => {
       localManagement.setItem(LocalStorageKeys.PAGE_NUMBER, action.payload);
       return action.payload;
     })
-    .addCase(nextPage, (state,action) => {
+    .addCase(nextPage, (state, action) => {
       const nextPageNumber = action.payload ? action.payload + 1 : 1;
       localManagement.setItem(LocalStorageKeys.PAGE_NUMBER, nextPageNumber);
       return nextPageNumber;
     })
-    .addCase(previousPage, (state,action) => {
+    .addCase(previousPage, (state, action) => {
       const previousPageNumber = action.payload ? action.payload - 1 : 1;
-      if(action.payload !== 1 ){
-
-        localManagement.setItem(LocalStorageKeys.PAGE_NUMBER, previousPageNumber);
+      if (action.payload !== 1) {
+        localManagement.setItem(
+          LocalStorageKeys.PAGE_NUMBER,
+          previousPageNumber
+        );
         return previousPageNumber;
-      }else{
+      } else {
         return 1;
       }
     });

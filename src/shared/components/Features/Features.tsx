@@ -18,6 +18,7 @@ const Features = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const currentpageNumber = useSelector(pageSelector);
   const offset = useSelector(offsetSelector);
+  
 
   console.log("pathName", offset);
 

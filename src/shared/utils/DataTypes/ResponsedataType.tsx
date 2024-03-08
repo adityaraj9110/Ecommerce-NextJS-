@@ -28,7 +28,8 @@ export enum LocalStorageKeys {
   PAGE_NUMBER = "pageNumber",
   REGISTER_USERS = "registeredUsers",
   CURRENT_USER = "currentuser",
-  OFFSET = "offset"
+  OFFSET = "offset",
+  TESTING_OFFSET="TESTING_OFFSET"
 }
 
 export type FormValues = {
